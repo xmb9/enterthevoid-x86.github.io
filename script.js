@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         profilePicture.src = "images/Untitled.png";
         nameElements.forEach((element) => {
             element.textContent = element.textContent.replace(/Matt/g, "xmb9");
-            element.textContent = element.textContent.replace(/xmb9thereal/g, "Ethereal");
+            element.textContent = element.textContent.replace(/xmb9hereal/g, "Ethereal");
             element.textContent = element.textContent.replace(/This xmb9/g, "This Mac");
             element.textContent = element.textContent.replace(/xmb9 OS/g, "Mac OS");
             
