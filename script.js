@@ -1,9 +1,9 @@
+;
+
 document.addEventListener("DOMContentLoaded", () => {
     const box = document.querySelector(".box");
     const profilePicture = box.querySelector("img");
     const pfpMenu = document.querySelector(".menu img:nth-child(1)");
-    const fileMenu = document.querySelector(".menu p:nth-child(3)");
-    const editMenu = document.querySelector(".menu p:nth-child(2)");
     const nameElements = document.querySelectorAll("h2, title");
     let posX = window.innerWidth / 2 - box.offsetWidth / 2;
     let posY = window.innerHeight / 2 - box.offsetHeight / 2;
@@ -73,9 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function mattstart() {
         matt = true;
-        profilePicture.src = "matt.png";
+        profilePicture.src = "images/matt.png";
         const favicon = document.querySelector("link[rel='icon']");
-        favicon.href = "matt.png"
+        favicon.href = "images/matthew.png"
         nameElements.forEach((element) => {
             element.textContent = element.textContent.replace(/xmb9/g, "Matt");
             element.textContent = element.textContent.replace(/Mac/g, "Matt");
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dy = 2;
         isJumping = false;
         const favicon = document.querySelector("link[rel='icon']");
-        favicon.href = "xmb9.png";
+        favicon.href = "images/xmb9.png";
         profilePicture.src = "images/Untitled.png";
         nameElements.forEach((element) => {
             element.textContent = element.textContent.replace(/Matt/g, "xmb9");
@@ -151,37 +151,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
     move();
 
+
     box.addEventListener("mousedown", (event) => {
         let isDragging = true;
         const mouseX = event.clientX - box.offsetLeft;
         const mouseY = event.clientY - box.offsetTop;
+        document.getElementById('wmov idle').play();
+
+        const children = box.querySelectorAll('*');
 
         const dragMove = (moveEvent) => {
+            document.getElementById('wmov idle').pause();
+            document.getElementById('wmov idle').currentTime = 0;
             if (isDragging) {
                 posX = Math.max(0, Math.min(window.innerWidth - box.offsetWidth, moveEvent.clientX - mouseX));
                 posY = Math.max(30, Math.min(window.innerHeight - box.offsetHeight, moveEvent.clientY - mouseY));
                 box.style.left = `${posX}px`;
                 box.style.top = `${posY}px`;
+                box.style.backgroundColor = "transparent";
+                box.style.border = "dotted 2px black";
+                children.forEach(child => {
+                    child.style.opacity = 0;
+                });
             }
+            document.getElementById('wmov moving').play();
         };
-
+        
         document.addEventListener("mousemove", dragMove);
 
         document.addEventListener("mouseup", () => {
+            if (isDragging) {
+                document.getElementById('wmov idle').pause();
+                document.getElementById('wmov idle').currentTime = 0;
+                document.getElementById('delay').play();
+            }
             isDragging = false;
+            document.getElementById('wmov moving').pause();
+            document.getElementById('wmov moving').currentTime = 0;
+            const children = box.querySelectorAll('*');
+            children.forEach(child => {
+                child.style.opacity = 100;
+            });
+            box.style.backgroundColor = "#dcdcdc";
+            box.style.border = "solid 2px black";
             document.removeEventListener("mousemove", dragMove);
         }, { once: true });
     });
-});
-
-editMenu.addEventListener("click", () => {
-    dvdmode = true;
-});
-
-fileMenu.addEventListener("click", () => {
-    resetAll();
-});
-
-pfpMenu.addEventListener("click", () => {
-    mattstart();
+    document.getElementById('switch').addEventListener("click", () => {
+        document.getElementById('powerBtn').remove();
+        document.querySelector('.top').style.display = "flex";
+        document.querySelector('.main').style.display = "flex";
+        document.querySelector('.main').style.backgroundImage = "url(images/background.png)";
+        document.querySelector('.main').style.backgroundRepeat = "repeat";
+        document.getElementById('startupSound').play();
+        resetAll();
+    })
 });

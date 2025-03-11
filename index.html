@@ -8,11 +8,19 @@
         <link rel="stylesheet" href="style.css">
         <link rel="icon" href="xmb9.png" type="image/png">
         <script src="index.js" defer></script>
-        <script src="script.js"></script>
-    <body> 
-        <div class="top">
+        <script src="script.js" defer></script>
+        <audio id="startupSound" src="sound/startup.wav" preload="auto"></audio>
+        <audio id="wmov idle" src="sound/wmov idle.mov" preload="auto"></audio>
+        <audio id="wmov moving" src="sound/wmov moving.mov" preload="auto"></audio>
+        <audio id="delay" src="sound/delay.mov" preload="auto"></audio>
+    <body>
+        <div style="position: absolute;" id="powerBtn" class="powerBtn">
+            <input type="checkbox" id="switch">
+            <label for="switch"><i class="fas fa-power-off"></i></label>
+        </div>
+        <div class="top crt">
             <div class="menu">
-                <img src="xmb9.png" width="20px" height="20px">
+                <img src="images/xmb9.png" width="20px" height="20px">
                 <p>File</p>
                 <p>Edit</p>
                 <p class="mobile">View</p>

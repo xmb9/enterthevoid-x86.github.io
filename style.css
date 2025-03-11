@@ -7,23 +7,65 @@
     src: url('AppleGaramond-Light.ttf') format('truetype');
 }
 body {
+    border-radius: 10px;
     user-select: none;
-    background-image: url(macos.png);
-    background-size: cover;
+    /* background-image: url("images/background.png");
+    background-repeat: repeat; */
     display: flex;
     align-items: center;
     height: 100vh;
     font-family: 'Chicago';
     margin: 0;
-    color: #FFFFFF;
+    color: white;
+    background-color: black;
     flex-direction: column;
     font-size: 10px;
+}
+
+input {
+  display: none;
+}
+
+label {
+  background: red;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 10px;
+  height: 40px;
+  position: relative;
+  width: 80px;
+  
+  i:before {
+    color: white;
+    display: block;
+    font-size: 2em;
+    left: 0;
+    margin: auto;    
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all .3s ease;
+  }
+}
+
+input:checked + label {
+  background: green;
+}
+.powerBtn {
+    position: absolute;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 .top {
     z-index: 1000;
     height: 30px;
     width: 100%;
-    display: flex;
+    display: none;
     background-color: #dcdcdc;
     font-weight: bold;
     color: black;
@@ -61,7 +103,7 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -178,3 +220,96 @@ h4 {
       display: none;
     }
 }
+
+@keyframes flicker {
+    0% {
+      opacity: 0.27861;
+    }
+    5% {
+      opacity: 0.34769;
+    }
+    10% {
+      opacity: 0.23604;
+    }
+    15% {
+      opacity: 0.90626;
+    }
+    20% {
+      opacity: 0.18128;
+    }
+    25% {
+      opacity: 0.83891;
+    }
+    30% {
+      opacity: 0.65583;
+    }
+    35% {
+      opacity: 0.67807;
+    }
+    40% {
+      opacity: 0.26559;
+    }
+    45% {
+      opacity: 0.84693;
+    }
+    50% {
+      opacity: 0.96019;
+    }
+    55% {
+      opacity: 0.08594;
+    }
+    60% {
+      opacity: 0.20313;
+    }
+    65% {
+      opacity: 0.71988;
+    }
+    70% {
+      opacity: 0.53455;
+    }
+    75% {
+      opacity: 0.37288;
+    }
+    80% {
+      opacity: 0.71428;
+    }
+    85% {
+      opacity: 0.70419;
+    }
+    90% {
+      opacity: 0.7003;
+    }
+    95% {
+      opacity: 0.36108;
+    }
+    100% {
+      opacity: 0.24387;
+    }
+  }
+  .crt::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+  }
+  .crt::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+  }
