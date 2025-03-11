@@ -1,5 +1,5 @@
 archima.xyz
-![matt.png](matt.png)
+![matt.png](images/matt.png)
 
 # Credits
 - [Sophie](https://github.com/sophiaasophieee): Pretty much made the whole website and added matt :fire:
