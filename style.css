@@ -4,14 +4,53 @@
 }
 body {
     user-select: none;
-    background-color: #131313;
+    background-image: url(macos.png);
+    background-size: cover;
     display: flex;
-    justify-content: center;
+    justify-content: top;
     align-items: center;
     height: 100vh;
     font-family: 'Terminus';
     margin: 0;
     color: #FFFFFF;
+    flex-direction: column;
+}
+.top {
+    height: 30px;
+    width: 100%;
+    text-align: left;
+    background-color: #f1f1f1;
+    font-weight: bold;
+    color: black;
+}
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    border-bottom: solid 2px black;
+}
+.menu p {
+    padding: auto;
+    margin: 0px 10px;
+}
+.menu img {
+    margin-left: 10px;
+}
+.menu p:hover {
+    margin: 0px 10px;
+    background-color: blue;
+}
+.menu img:hover {
+    margin-left: 10px;
+    background-color: blue;
+}
+.main {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
 }
 .box {
     width: 300px;
@@ -19,6 +58,8 @@ body {
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
     text-align: center;
 }
 i {
