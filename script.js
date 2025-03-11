@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 isJumping = true;
             }
         } else {
-            if (keyStates["ArrowUp"]) posY = Math.max(0, posY - speed);
+            if (keyStates["ArrowUp"]) posY = Math.max(30, posY - speed);
             if (keyStates["ArrowDown"]) posY = Math.min(window.innerHeight - box.offsetHeight, posY + speed);
             if (keyStates["ArrowLeft"]) posX = Math.max(0, posX - speed);
             if (keyStates["ArrowRight"]) posX = Math.min(window.innerWidth - box.offsetWidth, posX + speed);
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const dragMove = (moveEvent) => {
             if (isDragging) {
                 posX = Math.max(0, Math.min(window.innerWidth - box.offsetWidth, moveEvent.clientX - mouseX));
-                posY = Math.max(0, Math.min(window.innerHeight - box.offsetHeight, moveEvent.clientY - mouseY));
+                posY = Math.max(30, Math.min(window.innerHeight - box.offsetHeight, moveEvent.clientY - mouseY));
                 box.style.left = `${posX}px`;
                 box.style.top = `${posY}px`;
             }
