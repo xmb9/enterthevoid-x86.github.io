@@ -142,6 +142,7 @@ body {
     top: 2px;
     gap: 10px;
     flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 .bars {
