@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Terminus';
+    src: url('Terminus.ttf') format('truetype');
+}
+body {
+    user-select: none;
+    background-color: #131313;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Terminus';
+    margin: 0;
+    color: #FFFFFF;
+}
+.box {
+    width: 300px;
+    background-color: rgba(42, 204, 116, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+i {
+    color: #FFFFFF;
+}
