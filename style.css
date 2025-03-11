@@ -1,6 +1,10 @@
 @font-face {
-    font-family: 'Terminus';
-    src: url('Terminus.ttf') format('truetype');
+    font-family: 'Chicago';
+    src: url('ChicagoFLF.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Apple Garamond';
+    src: url('AppleGaramond-Light.ttf') format('truetype');
 }
 body {
     user-select: none;
@@ -9,12 +13,13 @@ body {
     display: flex;
     align-items: center;
     height: 100vh;
-    font-family: 'Terminus';
+    font-family: 'Chicago';
     margin: 0;
     color: #FFFFFF;
     flex-direction: column;
 }
 .top {
+    z-index: 1000;
     height: 30px;
     width: 100%;
     display: flex;
@@ -52,6 +57,7 @@ body {
     background-color: #333399;
 }
 .main {
+    position: absolute;
     margin-left: auto;
     padding: 0;
     width: 100%;
@@ -62,7 +68,7 @@ body {
     align-items: center;
 }
 .box {
-    width: 70%;
+    width: 50%;
     background-color: #dcdcdc;
     border: solid 2px black;
     justify-content: center;
@@ -99,12 +105,18 @@ body {
     border: solid 2px black;
     justify-content: center;
     color: black;
+    img {
+        margin-top: 4px;
+    }
     h1 {
-        font-size: 50px;
-        margin: 0;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 100px;
+        margin-top: -10px;
+        margin-bottom: 0px;
         padding: 2px;
     }
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Apple Garamond', Times, serif;
     text-align: center;
 }
 .links {
