@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const box = document.querySelector(".box");
     const profilePicture = box.querySelector("img");
+    const pfpMenu = document.querySelector(".menu img:nth-child(1)");
+    const fileMenu = document.querySelector(".menu p:nth-child(3)");
+    const editMenu = document.querySelector(".menu p:nth-child(2)");
     const nameElements = document.querySelectorAll("h2, title, h4, p");
     let posX = window.innerWidth / 2 - box.offsetWidth / 2;
     let posY = window.innerHeight / 2 - box.offsetHeight / 2;
@@ -98,13 +101,24 @@ document.addEventListener("DOMContentLoaded", () => {
             element.textContent = element.textContent.replace(/xmb9hereal/g, "Ethereal");
             element.textContent = element.textContent.replace(/This xmb9/g, "This Mac");
             element.textContent = element.textContent.replace(/xmb9 OS/g, "Mac OS");
-            
         });
 
         Object.keys(keyStates).forEach((key) => {
             keyStates[key] = false;
         });
     }
+
+    editMenu.addEventListener("click", () => {
+        dvdmode = true;
+    });
+
+    fileMenu.addEventListener("click", () => {
+        resetAll();
+    });
+
+    pfpMenu.addEventListener("click", () => {
+        mattstart();
+    });
 
     function move() {
         if (dvdmode) {
