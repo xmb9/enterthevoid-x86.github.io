@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pfpMenu = document.querySelector(".menu img:nth-child(1)");
     const fileMenu = document.querySelector(".menu p:nth-child(3)");
     const editMenu = document.querySelector(".menu p:nth-child(2)");
-    const nameElements = document.querySelectorAll("h2, title, h4, p");
+    const nameElements = document.querySelectorAll("h2, title");
     let posX = window.innerWidth / 2 - box.offsetWidth / 2;
     let posY = window.innerHeight / 2 - box.offsetHeight / 2;
     box.style.position = "absolute";
@@ -15,13 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const speed = 5;
     const gravity = 1;
     const leap = -15;
-    let xmb9mode = false;
+    let xmb9iemode = false;
     let dvdmode = false;
     let matt = false;
     let dx = 2;
     let dy = 2;
     let isJumping = false;
-    const xmb9letters = ["x", "m", "b", "9"];
+    const xmb9ieletters = ["x", "m", "b", "9"];
     const dvdletters = ["d", "v", "d"];
     const mattletters = ["m", "a", "t", "t"];
     let xmb9index = 0;
@@ -31,11 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", (event) => {
         keyStates[event.key] = true;
 
-        if (!xmb9mode && !dvdmode) {
-            if (event.key === xmb9letters[xmb9index]) {
+        if (!xmb9iemode && !dvdmode) {
+            if (event.key === xmb9ieletters[xmb9index]) {
                 xmb9index++;
-                if (xmb9index === xmb9letters.length) {
-                    xmb9mode = true;
+                if (xmb9index === xmb9ieletters.length) {
+                    xmb9iemode = true;
                     xmb9index = 0;
                 }
             } else {
@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             mattindex = 0;
         }
+
         if (event.key === "r" || event.key === "R") {
             resetAll();
         }
@@ -74,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         matt = true;
         profilePicture.src = "matt.png";
         const favicon = document.querySelector("link[rel='icon']");
-        favicon.href = "matthew.png"
+        favicon.href = "matt.png"
         nameElements.forEach((element) => {
             element.textContent = element.textContent.replace(/xmb9/g, "Matt");
             element.textContent = element.textContent.replace(/Mac/g, "Matt");
@@ -87,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         posY = window.innerHeight / 2 - box.offsetHeight / 2;
         box.style.left = `${posX}px`;
         box.style.top = `${posY}px`;
-        xmb9mode = false;
+        xmb9iemode = false;
         dvdmode = false;
         matt = false;
         dx = 2;
@@ -98,27 +99,15 @@ document.addEventListener("DOMContentLoaded", () => {
         profilePicture.src = "images/Untitled.png";
         nameElements.forEach((element) => {
             element.textContent = element.textContent.replace(/Matt/g, "xmb9");
-            element.textContent = element.textContent.replace(/xmb9hereal/g, "Ethereal");
-            element.textContent = element.textContent.replace(/This xmb9/g, "This Mac");
             element.textContent = element.textContent.replace(/xmb9 OS/g, "Mac OS");
+            element.textContent = element.textContent.replace(/xmb9ereal/g, "Ethereal");
+            element.textContent = element.textContent.replace(/This xmb9/g, "This Mac");
         });
 
         Object.keys(keyStates).forEach((key) => {
             keyStates[key] = false;
         });
     }
-
-    editMenu.addEventListener("click", () => {
-        dvdmode = true;
-    });
-
-    fileMenu.addEventListener("click", () => {
-        resetAll();
-    });
-
-    pfpMenu.addEventListener("click", () => {
-        mattstart();
-    });
 
     function move() {
         if (dvdmode) {
@@ -131,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (posY <= 30 || posY >= window.innerHeight - box.offsetHeight) {
                 dy *= -1;
             }
-        } else if (xmb9mode) {
+        } else if (xmb9iemode) {
             if (keyStates["ArrowLeft"]) posX = Math.max(0, posX - speed);
             if (keyStates["ArrowRight"]) posX = Math.min(window.innerWidth - box.offsetWidth, posX + speed);
 
@@ -139,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
             posY = Math.min(window.innerHeight - box.offsetHeight, posY + dy);
 
             if (posY >= window.innerHeight - box.offsetHeight) {
-                dy = 0;
+                dy = 30;
                 isJumping = false;
             }
 
@@ -183,4 +172,16 @@ document.addEventListener("DOMContentLoaded", () => {
             document.removeEventListener("mousemove", dragMove);
         }, { once: true });
     });
+});
+
+editMenu.addEventListener("click", () => {
+    dvdmode = true;
+});
+
+fileMenu.addEventListener("click", () => {
+    resetAll();
+});
+
+pfpMenu.addEventListener("click", () => {
+    mattstart();
 });
