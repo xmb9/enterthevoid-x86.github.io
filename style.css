@@ -17,6 +17,7 @@ body {
     margin: 0;
     color: #FFFFFF;
     flex-direction: column;
+    font-size: 10px;
 }
 .top {
     z-index: 1000;
@@ -38,7 +39,6 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 100%;
     p {
         padding: 6px;
         padding-top: 7px;
@@ -48,13 +48,13 @@ body {
         padding: 4px 12px;
         padding-top: 6px;
     }
-}
-.menu p:hover {
-    background-color: #333399;
-}
-.menu img:hover {
-    margin-left: 10px;
-    background-color: #333399;
+    p:hover {
+        background-color: #333399;
+    }
+    img:hover {
+        margin-left: 10px;
+        background-color: #333399;
+    }
 }
 .main {
     position: absolute;
@@ -69,7 +69,6 @@ body {
 }
 .box {
     width: 50%;
-    height: 80%;
     background-color: #dcdcdc;
     border: solid 2px black;
     justify-content: center;
@@ -86,7 +85,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 95%;
-    height: 65%;
     margin: 5px;
     background-color: #dcdcdc;
     border: solid 2px black;
@@ -111,14 +109,6 @@ body {
     color: black;
     img {
         margin-top: 4px;
-    }
-    h1 {
-        display: inline-block;
-        vertical-align: top;
-        font-size: 100px;
-        margin-top: -10px;
-        margin-bottom: 0px;
-        padding: 2px;
     }
     font-family: 'Apple Garamond', Times, serif;
     text-align: center;
@@ -148,11 +138,11 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     position: relative;
     top: 2px;
     gap: 10px;
     flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 .bars {
@@ -182,4 +172,10 @@ body {
 h4 {
     white-space: nowrap;
     margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .mobile {
+      display: none;
+    }
 }
