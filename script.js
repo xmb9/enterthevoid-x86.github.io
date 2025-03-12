@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pfpMenu = document.querySelector(".menu img:nth-child(1)");
     const fileMenu = document.querySelector(".menu p:nth-child(2)");
     const editMenu = document.querySelector(".menu p:nth-child(3)");
-    const nameElements = document.querySelectorAll("h2, title");
+    const nameElements = document.querySelectorAll("h2, title, p, h4");
     let posX = window.innerWidth / 2 - box.offsetWidth / 2;
     let posY = window.innerHeight / 2 - box.offsetHeight / 2;
     box.style.position = "absolute";
@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const favicon = document.querySelector("link[rel='icon']");
         favicon.href = "images/matthew.png";
         nameElements.forEach((element) => {
-            element.textContent = element.textContent.replace(/xmb9/g, "Matt");
             element.textContent = element.textContent.replace(/Mac/g, "Matt");
             element.textContent = element.textContent.replace(/Ethereal/g, "Matthereal");
         });
@@ -97,10 +96,8 @@ document.addEventListener("DOMContentLoaded", () => {
         favicon.href = "images/xmb9.png";
         profilePicture.src = "images/Untitled.png";
         nameElements.forEach((element) => {
-            element.textContent = element.textContent.replace(/Matt/g, "xmb9");
-            element.textContent = element.textContent.replace(/xmb9 OS/g, "Mac OS");
-            element.textContent = element.textContent.replace(/xmb9ereal/g, "Ethereal");
-            element.textContent = element.textContent.replace(/This xmb9/g, "This Mac");
+            element.textContent = element.textContent.replace(/Matt/g, "Mac");
+            element.textContent = element.textContent.replace(/Machereal/g, "Ethereal");
         });
 
         Object.keys(keyStates).forEach((key) => {
