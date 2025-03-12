@@ -1,9 +1,9 @@
-;
-
 document.addEventListener("DOMContentLoaded", () => {
     const box = document.querySelector(".box");
     const profilePicture = box.querySelector("img");
     const pfpMenu = document.querySelector(".menu img:nth-child(1)");
+    const fileMenu = document.querySelector(".menu p:nth-child(2)");
+    const editMenu = document.querySelector(".menu p:nth-child(3)");
     const nameElements = document.querySelectorAll("h2, title");
     let posX = window.innerWidth / 2 - box.offsetWidth / 2;
     let posY = window.innerHeight / 2 - box.offsetHeight / 2;
@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             mattindex = 0;
         }
-
         if (event.key === "r" || event.key === "R") {
             resetAll();
         }
@@ -75,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         matt = true;
         profilePicture.src = "images/matt.png";
         const favicon = document.querySelector("link[rel='icon']");
-        favicon.href = "images/matthew.png"
+        favicon.href = "images/matthew.png";
         nameElements.forEach((element) => {
             element.textContent = element.textContent.replace(/xmb9/g, "Matt");
             element.textContent = element.textContent.replace(/Mac/g, "Matt");
@@ -151,6 +150,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     move();
 
+    pfpMenu.addEventListener("click", () => {
+        mattstart();
+    });
+
+    fileMenu.addEventListener("click", () => {
+        dvdmode = true;
+        indvdex = 0;
+    });
+
+    editMenu.addEventListener("click", () => {
+        resetAll(); 
+    });
 
     box.addEventListener("mousedown", (event) => {
         let isDragging = true;
@@ -197,6 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.removeEventListener("mousemove", dragMove);
         }, { once: true });
     });
+
     document.getElementById('switch').addEventListener("click", () => {
         document.getElementById('powerBtn').remove();
         document.querySelector('.top').style.display = "flex";
@@ -205,5 +217,5 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('.main').style.backgroundRepeat = "repeat";
         document.getElementById('startupSound').play();
         resetAll();
-    })
+    });
 });
