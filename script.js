@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pfpMenu = document.querySelector(".menu img:nth-child(1)");
     const fileMenu = document.querySelector(".menu p:nth-child(2)");
     const editMenu = document.querySelector(".menu p:nth-child(3)");
+    const viewMenu = document.querySelector(".menu p:nth-child(4)");
     const nameElements = document.querySelectorAll("h2, title, p, h4");
     let posX = window.innerWidth / 2 - box.offsetWidth / 2;
     let posY = window.innerHeight / 2 - box.offsetHeight / 2;
@@ -157,6 +158,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     editMenu.addEventListener("click", () => {
+        xmb9iemode = true;
+        xmb9index = 0; 
+    });
+
+    viewMenu.addEventListener("click", () => {
         resetAll(); 
     });
 
