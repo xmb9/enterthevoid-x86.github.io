@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     const box = document.querySelector(".box");
-    const profilePicture = box.querySelector("img");
-    const pfpMenu = document.querySelector(".menu img:nth-child(1)");
+    const macOsImg = box.querySelector("img");
+    const pfpMenu = document.querySelector(".menuimg");
     const fileMenu = document.querySelector(".menu p:nth-child(2)");
     const editMenu = document.querySelector(".menu p:nth-child(3)");
     const viewMenu = document.querySelector(".menu p:nth-child(4)");
-    const nameElements = document.querySelectorAll("h2, title, p, h4");
+    const nameElements = document.querySelectorAll("h2, p, h4");
+    const nameTitle = document.querySelectorAll("title");
     let posX = window.innerWidth / 2 - box.offsetWidth / 2;
     let posY = window.innerHeight / 2 - box.offsetHeight / 2;
     box.style.position = "absolute";
@@ -73,12 +74,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function mattstart() {
         matt = true;
-        profilePicture.src = "images/matt.png";
+        macOsImg.src = "images/matt.png";
+        pfpMenu.src = "images/matthew.png";
         const favicon = document.querySelector("link[rel='icon']");
         favicon.href = "images/matthew.png";
         nameElements.forEach((element) => {
             element.textContent = element.textContent.replace(/Mac/g, "Matt");
             element.textContent = element.textContent.replace(/Ethereal/g, "Matthereal");
+        });
+        nameTitle.forEach((element) => {
+            element.textContent = element.textContent.replace(/xmb9/g, "Matt");
         });
     }
 
@@ -93,12 +98,16 @@ document.addEventListener("DOMContentLoaded", () => {
         dx = 2;
         dy = 2;
         isJumping = false;
-        const favicon = document.querySelector("link[rel='icon']");
+        const favicon = document.querySelector("link[rel='icon'], .menuimg");
         favicon.href = "images/xmb9.png";
-        profilePicture.src = "images/Untitled.png";
+        macOsImg.src = "images/Untitled.png";
+        pfpMenu.src = "images/xmb9.png";
         nameElements.forEach((element) => {
             element.textContent = element.textContent.replace(/Matt/g, "Mac");
             element.textContent = element.textContent.replace(/Machereal/g, "Ethereal");
+        });
+        nameTitle.forEach((element) => {
+            element.textContent = element.textContent.replace(/Matt/g, "xmb9");
         });
 
         Object.keys(keyStates).forEach((key) => {
