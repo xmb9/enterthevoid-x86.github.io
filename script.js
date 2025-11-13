@@ -231,3 +231,18 @@ document.addEventListener("DOMContentLoaded", () => {
         resetAll();
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+button = document.getElementById('soapbutton');
+const tag = `
+<a href="https://archima.xyz" target="_blank">
+    <img src="https://archima.xyz/images/button.png" alt="xmb9" class="button-88x31">
+</a>
+`;
+button.addEventListener('click', async () => {
+    await navigator.clipboard.writeText(tag);
+    alert(tag + `
+        
+        copied to clipboard.`)
+})
+});
