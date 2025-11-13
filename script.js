@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-button = document.getElementById('soapbutton');
+button = document.getElementById('xmbutton');
 const tag = `
 <a href="https://archima.xyz" target="_blank">
     <img src="https://archima.xyz/images/button.png" alt="xmb9" class="button-88x31">
