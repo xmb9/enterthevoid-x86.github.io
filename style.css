@@ -314,10 +314,11 @@ h4 {
     pointer-events: none;
   }
 
-
 .friends {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 12px;
 }
 
